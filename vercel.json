@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "name": "generative-art-engine",
+  "builds": [
+    {
+      "src": "portfolio_background/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/portfolio_background/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/portfolio_background/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
+  ]
+}
