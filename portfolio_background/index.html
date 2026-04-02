@@ -189,6 +189,24 @@
             </div>
         </div>
 
+        <!-- Mode 2: Dynamic Draw Context Controls -->
+        <div class="panel-section mode-specific" id="mode-ctrl-2" style="display:none">
+            <div class="section-label">✏️ DRAWING CONTROLS</div>
+            <div class="control-row">
+                <label>Mirror Symmetry</label>
+                <div class="segmented">
+                    <button class="seg-btn active" data-sym="none" id="sym-none">None</button>
+                    <button class="seg-btn" data-sym="v" id="sym-v">Vertical</button>
+                    <button class="seg-btn" data-sym="h" id="sym-h">Horizontal</button>
+                    <button class="seg-btn" data-sym="vh" id="sym-vh">Both</button>
+                </div>
+            </div>
+            <div class="control-row">
+                <label>Glow Intensity <span class="ctrl-val" id="val-glow">12</span></label>
+                <input type="range" id="ctrl-glow" min="0" max="40" step="1" value="12">
+            </div>
+        </div>
+
         <!-- Mode 4: Triangle Wave Context Controls -->
         <div class="panel-section mode-specific" id="mode-ctrl-4" style="display:none">
             <div class="section-label">🔺 TRIANGLE CONTROLS</div>
@@ -309,6 +327,14 @@
 
     </div>
 
+    <!-- Snapshot Gallery -->
+    <div id="snapshot-gallery">
+        <div class="gallery-label">Last Snapshots</div>
+        <div id="gallery-reel">
+            <div class="gallery-empty">Capture with [S]</div>
+        </div>
+    </div>
+
     <!-- Floating AI Chat Assistant -->
     <div id="chat-container">
         <div id="chat-header">
@@ -321,6 +347,12 @@
         </div>
         <div id="chat-input-area">
             <input type="text" id="chat-input" placeholder="Type a command... (e.g. 'chaos mode')">
+            <button id="btn-voice-chat" class="chat-tool-btn" title="Voice Control">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                    <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                </svg>
+            </button>
             <button id="btn-send-chat">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="22" y1="2" x2="11" y2="13" />

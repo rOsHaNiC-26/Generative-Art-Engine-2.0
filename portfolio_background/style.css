@@ -507,11 +507,6 @@ kbd {
 /* ================================================================
    RESPONSIVE
    ================================================================ */
-@media (max-width: 800px) {
-    :root { --panel-w: 265px; }
-    #hud-title { display: none; }
-}
-
 @media (max-width: 600px) {
     :root { --panel-w: 100vw; }
     #control-panel {
@@ -520,4 +515,54 @@ kbd {
     }
     #control-panel.hidden { transform: translateY(100%); }
     #hud-actions .hud-btn span { display: none; }
+}
+
+/* ================================================================
+   NEW: VOICE CONTROL & SNAPSHOT GALLERY
+   ================================================================ */
+.chat-tool-btn {
+    background: rgba(255,179,71,0.08); border: 1px solid rgba(255,179,71,0.14);
+    color: var(--audio-col); border-radius: 50%; width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s;
+}
+
+.chat-tool-btn:hover { background: rgba(255,179,71,0.18); transform: translateY(-1px); }
+.chat-tool-btn.listening { background: var(--audio-col); color: #000; animation: pulse 1.5s infinite; }
+
+#snapshot-gallery {
+    position: fixed; bottom: 85px; right: 350px;
+    width: 220px; z-index: 100; pointer-events: none;
+    transition: opacity 0.4s;
+}
+
+.gallery-label {
+    text-align: right; font-size: 9px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 6px;
+}
+
+#gallery-reel {
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+}
+
+.gallery-empty {
+    font-size: 10px; color: var(--text-muted); opacity: 0.5;
+}
+
+.snap-card {
+    width: 140px; height: 80px; border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.03); overflow: hidden;
+    cursor: pointer; pointer-events: auto; transition: all 0.3s;
+    animation: slideInRight 0.4s var(--ease);
+}
+
+.snap-card:hover { transform: scale(1.08) translateX(-10px); border-color: var(--accent); }
+.snap-card img { width: 100%; height: 100%; object-fit: cover; }
+
+@keyframes slideInRight {
+    from { opacity:0; transform: translateX(20px); }
+    to   { opacity:1; transform: translateX(0); }
 }
